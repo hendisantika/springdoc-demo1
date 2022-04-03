@@ -25,6 +25,14 @@ import java.util.List;
  */
 @RestController
 public class OpenAPIController {
+    private static final List<Tutorial> allTutorials = List.of(
+            new Tutorial(1, "Spring Boot Tutorial", "Hendi Santika"),
+            new Tutorial(2, "Java Fundamental Tutorial", "Hendi Santika"),
+            new Tutorial(3, "Spring Security Tutorial", "Hendi Santika"),
+            new Tutorial(4, "Thymeleaf Tutorial", "Hendi Santika"),
+            new Tutorial(5, "REST API Tutorial", "Hendi Santika")
+    );
+
     @Operation(summary = "Get all Tutorials", description = "Returns a list of tutorials", operationId = "tutorials")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "ok, successful operation",
@@ -34,7 +42,9 @@ public class OpenAPIController {
             @ApiResponse(responseCode = "404", description = "Not found")})
     @GetMapping(value = "/tutorials", produces = "application/json")
     public ResponseEntity<List<Tutorial>> tutorials() {
-        List<Tutorial> tutorials = TestData.allTutorials();
+        List<Tutorial> tutorials = allTutorials;
         return new ResponseEntity<>(tutorials, HttpStatus.OK);
     }
+
+
 }
