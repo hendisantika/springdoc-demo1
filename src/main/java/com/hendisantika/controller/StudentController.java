@@ -44,7 +44,7 @@ public class StudentController {
 
         Student student = new Student();
         student.setId(1L);
-        student.setName("Arun");
+        student.setName("Uzumaki Naruto");
         students.add(student);
 
         return students;
