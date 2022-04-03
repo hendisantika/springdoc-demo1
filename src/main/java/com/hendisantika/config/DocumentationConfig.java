@@ -3,6 +3,7 @@ package com.hendisantika.config;
 import io.swagger.v3.oas.models.OpenAPI;
 import io.swagger.v3.oas.models.info.Contact;
 import io.swagger.v3.oas.models.info.Info;
+import io.swagger.v3.oas.models.info.License;
 import io.swagger.v3.oas.models.servers.Server;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -37,8 +38,12 @@ public class DocumentationConfig {
                 .description(
                         "Documenting Spring Boot REST API with SpringDoc and OpenAPI 3 spec")
                 .version("1.0.0")
-                .contact(new Contact().name("Hendi Santika").
-                        url("https://linktr.ee/hendisantika").email("hendisantika@yahoo.co.id")));
+                .contact(new Contact()
+                        .name("Hendi Santika")
+                        .url("https://linktr.ee/hendisantika")
+                        .email("hendisantika@yahoo.co.id"))
+                .termsOfService("TOC")
+                .license(new License().name("License").url("https://linktr.ee/hendisantika")));
         openAPI.setServers(Arrays.asList(localServer, testServer));
 
         return openAPI;
